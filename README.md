@@ -10,7 +10,7 @@ Questo progetto implementa un sistema PLC per il controllo di un impianto di con
 
 ### Caratteristiche Principali
 
-- **Programmazione PLC**: Logica di controllo sviluppata in **linguaggio SCL** con TiaPortal 16 per SIMATIC S7-1200
+- **Programmazione PLC**: Logica di controllo sviluppata in **linguaggio SCL** con TiaPortal 16 per SIMATIC S7-1500
 - **Simulazione Hardware**: Utilizzo di PLCSim Advanced per simulare il funzionamento del PLC
 - **Protocollo OPC UA**: Comunicazione standardizzata tra PLC e applicazioni client
 - **Dashboard Node-RED**: Interfaccia web interattiva per monitoraggio e gestione allarmi
@@ -47,7 +47,7 @@ Raccolta di screenshot che documentano il funzionamento del sistema:
 Progetto principale TiaPortal 16 contenente:
 - Programma PLC in linguaggio **SCL** (Structured Control Language)
 - Simboli e variabili del progetto
-- Configurazione hardware (SIMATIC S7-1200)
+- Configurazione hardware (SIMATIC S7-1500)
 - Interfacce OPC UA
 
 ### `client_serbatoio.uap`
@@ -84,7 +84,7 @@ Configurazione di **Node-RED** contenente:
 |-----------|-----------|---------|
 | **PLC Programming** | TiaPortal V16 | 16.0 |
 | **Simulazione Hardware** | PLCSim Advanced | - |
-| **PLC Target** | SIMATIC S7-1200 | - |
+| **PLC Target** | SIMATIC S7-1500 | - |
 | **Protocollo Comunicazione** | OPC UA | - |
 | **Frontend Monitoraggio** | Node-RED | - |
 | **Interfaccia Client** | UA Expert + Browser | - |
