@@ -1,16 +1,16 @@
-# Controllo Condizionamento - Sistema SCADA PLC
+# Controllo Condizionamento - Sistema PLC
 
-Un sistema completo di controllo e monitoraggio per un impianto di condizionamento sviluppato con **TiaPortal 16** e **PLCSim Advanced**, integrato con **OPC UA** e **Node-RED** per visualizzazione e gestione allarmi su browser.
+Un sistema completo di controllo e monitoraggio per un impianto di condizionamento sviluppato con **TiaPortal 16** (linguaggio SCL) e **PLCSim Advanced**, integrato con **OPC UA** e **Node-RED** per visualizzazione e gestione allarmi su browser.
 
 ---
 
 ## 📋 Descrizione del Progetto
 
-Questo progetto implementa un sistema SCADA (Supervisory Control and Data Acquisition) per il controllo di un impianto di condizionamento. Il sistema è diviso in componenti hardware (simulata tramite PLCSim) e componenti software di frontend per il monitoraggio e la gestione degli allarmi.
+Questo progetto implementa un sistema PLC per il controllo di un impianto di condizionamento. La logica di controllo è sviluppata in linguaggio **SCL** (Structured Control Language) su TiaPortal 16. Il sistema è diviso in componenti hardware (simulati tramite PLCSim Advanced) e componenti software di frontend per il monitoraggio e la gestione degli allarmi tramite OPC UA.
 
 ### Caratteristiche Principali
 
-- **Programmazione PLC**: Logica di controllo sviluppata in TiaPortal 16 per SIMATIC S7-1200
+- **Programmazione PLC**: Logica di controllo sviluppata in **linguaggio SCL** con TiaPortal 16 per SIMATIC S7-1200
 - **Simulazione Hardware**: Utilizzo di PLCSim Advanced per simulare il funzionamento del PLC
 - **Protocollo OPC UA**: Comunicazione standardizzata tra PLC e applicazioni client
 - **Dashboard Node-RED**: Interfaccia web interattiva per monitoraggio e gestione allarmi
@@ -25,13 +25,11 @@ Questo progetto implementa un sistema SCADA (Supervisory Control and Data Acquis
 Contiene la simulazione del programma PLC e la documentazione del funzionamento:
 
 - **`Simulazione.sim16`**: File principale della simulazione PLCSim Advanced
-- **`Logs/`**: Log delle sequenze di funzionamento esportate:
-  - `tabella_sequenza_base_naturale.xml` - Sequenza di funzionamento normale
-  - `tabella_sequenza_base_naturale_1.xml`, `_2.xml` - Varianti della sequenza normale
-  - `sequenza_base_forzata.xml` - Sequenza con forzamento valori
-  - `sequenza_base_forzata_1.xml`
-  - `tabella_sequenza.xml`, `sequenza_*.xml` - Log di esecuzione e allarmi
-  - `MassDataHandlerLogFile.xsl` - Stylesheet per visualizzazione log
+- **`Logs/`**: Sequenze di funzionamento esportate in formato Excel:
+  - `tabella_sequenza_base_naturale.xlsx` - Sequenza di funzionamento normale
+  - `tabella_sequenza_base_naturale_1.xlsx`, `_2.xlsx` - Varianti della sequenza normale
+  - `tabella_sequenza.xlsx` - Tabella della sequenza con valori parametri
+  - File aggiuntivi con log di esecuzione e allarmi
 - **`AdditionalFiles/`**: File di supporto e configurazione
 
 ### `screenshots/` - Documentazione Visuale
@@ -47,7 +45,7 @@ Raccolta di screenshot che documentano il funzionamento del sistema:
 
 ### `PROGETTO PLC E SCADA.ap16`
 Progetto principale TiaPortal 16 contenente:
-- Programma PLC in linguaggio IEC 61131-3 (STL/LAD)
+- Programma PLC in linguaggio **SCL** (Structured Control Language)
 - Simboli e variabili del progetto
 - Configurazione hardware (SIMATIC S7-1200)
 - Interfacce OPC UA
@@ -59,8 +57,10 @@ Configuration file per **UA Expert**:
   - Livello del serbatoio
   - Pressione dell'impianto
   - Temperatura di funzionamento
-  - Stato della macchina (On/Off, Running, Alarm)
-- Interfaccia user-friendly per monitoraggio dati
+  - Stato della macchina
+  - **Stato delle valvole** (apertura/chiusura e posizioni)
+  - **Stato degli allarmi** (attivi/inattivi con timestamp e livello di gravità)
+- Interfaccia user-friendly per monitoraggio dati in tempo reale
 
 ### `allarmi_flows.json`
 Configurazione di **Node-RED** contenente:
@@ -75,7 +75,6 @@ Configurazione di **Node-RED** contenente:
 - **Informazioni generali**: 
   - Stato corrente della macchina
   - Valore istantaneo di livello, pressione e temperatura
-  - Storico e trends
 
 ---
 
@@ -92,51 +91,14 @@ Configurazione di **Node-RED** contenente:
 
 ---
 
-## 🚀 Come Utilizzare il Progetto
-
-### 1. Eseguire la Simulazione PLC
-
-```bash
-# Aprire TiaPortal 16
-# File > Open > PROGETTO PLC E SCADA.ap16
-
-# Oppure eseguire la simulazione direttamente
-# Aprire Simulazione/Simulazione.sim16 in PLCSim Advanced
-```
-
-### 2. Visualizzare i Dati tramite OPC UA
-
-**Metodo A - UA Expert:**
-```bash
-# Aprire UA Expert
-# File > Open > client_serbatoio.uap
-# Questa configurazione mostrerà tutti i parametri in tempo reale
-```
-
-**Metodo B - Browser (Node-RED):**
-```bash
-# Importare il flow da allarmi_flows.json in Node-RED
-# Accedere alla dashboard all'indirizzo: http://localhost:1880/ui
-```
-
-### 3. Monitorare gli Allarmi
-
-Nel dashboard Node-RED saranno visualizzati:
-- **Stato della macchina**: Running / Stopped / Alarm
-- **5 Allarmi**: Con indicatori di stato e gravità
-- **Parametri istantanei**: Livello, Pressione, Temperatura
-- **Informazioni sistema**: Timestamp, stato generale
-
----
-
 ## 📊 Descrizione dei Parametri Monitorati
 
 | Parametro | Unità | Descrizione |
 |-----------|-------|------------|
-| **Livello** | % | Percentuale di riempimento del serbatoio (0-100%) |
+| **Livello** | L | Percentuale di riempimento del serbatoio |
 | **Pressione** | bar | Pressione dell'impianto |
 | **Temperatura** | °C | Temperatura di funzionamento |
-| **Stato Macchina** | - | Off, Running, Alarm |
+| **Stato Macchina** | - | Vedasi la struttura della macchina a stati |
 | **Allarme** | - | Tipo e gravità dell'allarme attivo |
 
 ---
@@ -161,19 +123,19 @@ Nel dashboard Node-RED saranno visualizzati:
 
 ### 5. **Sottopressione** (Underpressure Alarm)
 - Trigger: Pressione al di sotto del minimo
-- Gravità: Critica
+- Gravità: Alta
 
 ---
 
 ## 📈 Sequenze di Funzionamento
 
-Le sequenze di funzionamento sono documentate in file Excel/XML nella cartella `Simulazione/Logs/`:
+Le sequenze di funzionamento sono documentate in file Excel nella cartella `Simulazione/Logs/`:
 
-- **Sequenza Naturale**: Funzionamento senza interventi
-- **Sequenza Forzata**: Simulazione con valori forzati per test allarmi
+- **Sequenza Naturale**: Funzionamento senza interventi (`tabella_sequenza_base_naturale.xlsx`)
+- **Sequenze Variate**: Varianti della sequenza normale per diversi scenari di test
 - **Allarmi**: Comportamento del sistema durante condizioni di allarme
 
-I file `.xml` contengono timestamp, valori dei parametri e state machine del sistema.
+I file `.xlsx` contengono timestamp, valori istantanei dei parametri, stato della macchina e attivazione degli allarmi, permettendo l'analisi completa del funzionamento del sistema PLC.
 
 ---
 
@@ -210,24 +172,6 @@ Questo documento contiene:
 
 ---
 
-## 🔧 Requisiti di Sistema
-
-### Hardware Minimo
-- **CPU**: Dual-core 2.0 GHz
-- **RAM**: 4 GB (8 GB consigliato)
-- **Disco**: 500 MB spazio disponibile
-- **Rete**: Ethernet per OPC UA
-
-### Software Richiesto
-- Windows 7/10/11 o Linux
-- **TiaPortal V16** (per modificare il programma PLC)
-- **PLCSim Advanced** (per eseguire la simulazione)
-- **UA Expert** (per visualizzazione OPC UA)
-- **Node-RED** (per dashboard browser)
-- Browser web moderno (Chrome, Firefox, Edge)
-
----
-
 ## 📝 Note Implementative
 
 - Il sistema utilizza comunicazione **OPC UA** per garantire interoperabilità e sicurezza
@@ -235,26 +179,3 @@ Questo documento contiene:
 - Le soglie di allarme sono configurabili nel programma PLC
 - Il sistema supporta logging dei dati per analisi successive
 - Dashboard Node-RED è responsiva e accessibile da qualsiasi dispositivo sulla rete
-
----
-
-## 👤 Autore
-
-**Stefano RINALDI**
-
----
-
-## 📄 Licenza
-
-Questo progetto è fornito per scopi educativi e didattici.
-
----
-
-## 📞 Supporto
-
-Per domande tecniche specifiche, consultare la documentazione PDF allegata o contattare l'autore del progetto.
-
----
-
-**Ultima modifica**: Novembre 2025  
-**Versione**: 1.0
