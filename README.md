@@ -141,20 +141,15 @@ I file `.xlsx` contengono timestamp, valori istantanei dei parametri, stato dell
 
 ## 🖼️ Screenshot del Sistema
 
-### Dashboard di Monitoraggio
-![Dashboard Allarmi](screenshots/allarmi_dashboard.png)
+![Dashboard Allarmi](Screenshots/allarmi_dashboard.png)
 
-### Configurazione OPC UA
-![Configurazione OPC UA](screenshots/opc_UA.png)
+![Configurazione OPC UA](Screenshots/opc_UA.png)
 
-### Server OPC UA Attivo
-![Server OPC UA](screenshots/server_opcua.png)
+![Server OPC UA](Screenshots/server_opcua.png)
 
-### Sequenza Corretta di Funzionamento
-![Sequenza Corretta](screenshots/sequenza_corretta.png)
+![Sequenza Corretta](Screenshots/sequenza_corretta.png)
 
-### Sequenza Durante Allarme
-![Allarme Sottopressione](screenshots/sequenza_allarme_sottopressione.png)
+![Allarme Sottopressione](Screenshots/sequenza_allarme_sottopressione.png)
 
 ---
 
