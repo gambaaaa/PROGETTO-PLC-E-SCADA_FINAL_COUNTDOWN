@@ -25,14 +25,13 @@ Questo progetto implementa un sistema PLC per il controllo di un impianto di con
 Contiene la simulazione del programma PLC e la documentazione del funzionamento:
 
 - **`Simulazione.sim16`**: File principale della simulazione PLCSim Advanced
-- **`Logs/`**: Sequenze di funzionamento esportate in formato Excel:
-  - `tabella_sequenza_base_naturale.xlsx` - Sequenza di funzionamento normale
-  - `tabella_sequenza_base_naturale_1.xlsx`, `_2.xlsx` - Varianti della sequenza normale
-  - `tabella_sequenza.xlsx` - Tabella della sequenza con valori parametri
-  - File aggiuntivi con log di esecuzione e allarmi
-- **`AdditionalFiles/`**: File di supporto e configurazione
+- Sequenze di funzionamento esportate in formato Excel:
+  - `sequenza_base_naturale.xlsx` - Sequenza di funzionamento normale
+  - `sequenza_base_forzata.xlsx` - Varianti della sequenza normale
+  - `tabella_sim.xlsx` - Tabella delle entrate e uscite fisiche da osservare
+  - `sequenza_allarme_xxx.xlsx` - Sequenza di allarme
 
-### `screenshots/` - Documentazione Visuale
+### `Screenshots/` - Documentazione Visuale
 Raccolta di screenshot che documentano il funzionamento del sistema:
 
 - **`allarmi_dashboard.png`** - Dashboard Node-RED con visualizzazione allarmi
