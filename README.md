@@ -129,9 +129,9 @@ Configurazione di **Node-RED** contenente:
 
 ## 📈 Sequenze di Funzionamento
 
-Le sequenze di funzionamento sono documentate in file Excel nella cartella `Simulazione/Logs/`:
+Le sequenze di funzionamento sono documentate in file Excel nella cartella `Simulazione/`:
 
-- **Sequenza Naturale**: Funzionamento senza interventi (`tabella_sequenza_base_naturale.xlsx`)
+- **Sequenza Naturale**: Funzionamento senza interventi (`sequenza_base_naturale.xlsx` e `sequenza_base_forzata.xlsx`)
 - **Sequenze Variate**: Varianti della sequenza normale per diversi scenari di test
 - **Allarmi**: Comportamento del sistema durante condizioni di allarme
 
@@ -141,15 +141,15 @@ I file `.xlsx` contengono timestamp, valori istantanei dei parametri, stato dell
 
 ## 🖼️ Screenshot del Sistema
 
-![Dashboard Allarmi](Screenshots/allarmi_dashboard.png)
+![Dashboard Allarmi](screenshots/allarmi_dashboard.png)
 
-![Configurazione OPC UA](Screenshots/opc_UA.png)
+![Configurazione OPC UA](screenshots/opc_UA.png)
 
-![Server OPC UA](Screenshots/server_opcua.png)
+![Server OPC UA](screenshots/server_opcua.png)
 
-![Sequenza Corretta](Screenshots/sequenza_corretta.png)
+![Sequenza Corretta](screenshots/sequenza_corretta.png)
 
-![Allarme Sottopressione](Screenshots/sequenza_allarme_sottopressione.png)
+![Allarme Sottopressione](screenshots/sequenza_allarme_sottopressione.png)
 
 ---
 
